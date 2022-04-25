@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    //目标代码
     "target": "esnext",
+    //模块化方案
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    //按node 解析模块
     "moduleResolution": "node",
+    //跳过一些库的检查
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -16,6 +20,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    //哪些库的类型
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
