@@ -2,7 +2,7 @@
 let BASE_URL = 'https://www.wanandroid.com'
 const env = process.env.NODE_ENV
 if (env === 'development') {
-  BASE_URL = 'https://www.wanandroid.com'
+  BASE_URL = '/api'
 } else if (env === 'production') {
   BASE_URL = 'https://www.wanandroid.com'
 } else {
