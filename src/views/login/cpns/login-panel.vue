@@ -59,13 +59,13 @@ const handleLoginClick = () => {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="css">
 .login-panel {
   width: 320px;
   margin-bottom: 150px;
-  .title {
-    text-align: center;
-  }
+}
+.login-panel .title {
+  text-align: center;
 }
 .el-tabs__content {
   overflow: hidden;

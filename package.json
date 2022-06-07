@@ -14,7 +14,9 @@
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
     "element-plus": "^2.1.9",
+    "lib-flexible": "^0.3.2",
     "normalize.css": "^8.0.1",
+    "postcss-pxtorem": "^6.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
     "vuex": "^4.0.2"

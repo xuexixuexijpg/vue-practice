@@ -47,7 +47,7 @@ const rules = {
 }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="css"></style>
 
 <style>
 .item .el-form-item__content {

@@ -5,6 +5,8 @@ import store, { setupStore } from './store'
 import 'normalize.css'
 import './assets/css/index.less'
 import * as Icons from '@element-plus/icons'
+import 'lib-flexible'
+import './utils/rem'
 
 const app = createApp(App)
 app.use(router)

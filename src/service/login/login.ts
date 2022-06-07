@@ -25,6 +25,6 @@ export function requestUserInfoById(id: number) {
 //请求用户菜单
 export function requestUserMenusByRoleId(roleId: number) {
   return drRequest.get<IDataType>({
-    url: LoginApi.UserMenus + roleId + '/menu'
+    url: LoginApi.UserMenus + '/' + roleId + '/menu'
   })
 }
