@@ -24,6 +24,9 @@ module.exports = {
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    //关闭组件命名规则
+    'vue/multi-word-component-names': 'off',
+    '@typescript-eslint/no-var-requires': 0
   }
 }

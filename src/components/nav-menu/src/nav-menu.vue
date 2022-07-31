@@ -4,7 +4,7 @@
     <div class="logo">
       <!-- template中使用别名 要加~ -->
       <img class="img" src="~@/assets/img/logo.svg" alt="logo" />
-      <span class="title">Vue3+Ts</span>
+      <span v-if="!collapse" class="title">Vue3+Ts</span>
     </div>
 
     <!-- 菜单 -->
@@ -14,6 +14,7 @@
       background-color="#0c2135"
       text-color="#b7bdc3"
       active-text-color="#0a60bd"
+      :collapse="collapse"
     >
       <template v-for="item in userMenus" :key="item.id">
         <!-- 二级菜单 -->
@@ -26,7 +27,10 @@
             </template>
             <!-- 遍历里面的item -->
             <template v-for="subitem in item.children" :key="subitem.id">
-              <el-menu-item :index="subitem.id + ''">
+              <el-menu-item
+                :index="subitem.id + ''"
+                @click="handleMenuItemClick(subitem)"
+              >
                 <i v-if="subitem.icon" :class="subitem.icon"></i>
                 <span>{{ subitem.name }}</span>
               </el-menu-item>
@@ -48,11 +52,24 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useStore } from '@/store'
+import { useRouter } from 'vue-router'
+interface Props {
+  collapse?: boolean
+}
+withDefaults(defineProps<Props>(), {
+  collapse: false
+})
 
 const store = useStore()
+const router = useRouter()
 
 //路由菜单
 const userMenus = computed(() => store.state.login.userMenus)
+
+//menu item 点击路由跳转
+const handleMenuItemClick = (item: any) => {
+  router.push(item.url ?? '/not-found')
+}
 </script>
 
 <style scoped lang="less">
@@ -77,6 +94,10 @@ const userMenus = computed(() => store.state.login.userMenus)
       color: white;
     }
   }
+}
+
+.el-menu {
+  border-right: none;
 }
 
 //目录

@@ -1,17 +1,21 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside width="200px">
+      <el-aside :width="isCollapse ? '0.1' : '0.25'">
         <!-- 侧边栏 -->
-        <nave-menu />
+        <nave-menu :collapse="isCollapse" />
       </el-aside>
       <el-container class="page">
         <el-header class="page-header">
           <!-- 头部 -->
-          <nav-header />
+          <nav-header @fold-change="handleFoldChange" />
         </el-header>
         <!-- 主展示 -->
-        <el-main class="page-content">Main</el-main>
+        <el-main class="page-content">
+          <div class="page-info">
+            <router-view></router-view>
+          </div>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -20,6 +24,11 @@
 <script setup lang="ts">
 import NaveMenu from '@/components/nav-menu'
 import NavHeader from '@/components/nav-header'
+import { ref } from 'vue'
+const isCollapse = ref(false)
+const handleFoldChange = (isFold: boolean) => {
+  isCollapse.value = isFold
+}
 </script>
 
 <style scoped lang="less">
@@ -38,6 +47,10 @@ import NavHeader from '@/components/nav-header'
 }
 .page-content {
   height: calc(100% - 48px);
+  .page-info {
+    background-color: #fff;
+    border-radius: 5px;
+  }
 }
 .el-header .el-footer {
   display: flex;

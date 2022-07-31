@@ -1,0 +1,3 @@
+import DrForm from './src/form.vue'
+export * from './types'
+export default DrForm

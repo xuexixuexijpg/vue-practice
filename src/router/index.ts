@@ -9,11 +9,19 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/login',
+    name: 'login',
     component: () => import('@/views/login/loginView.vue')
   },
   {
     path: '/main',
+    name: 'main',
     component: () => import('@/views/main/mainView.vue')
+    // children: [] //根据userMenu来决定生成
+  },
+  {
+    path: '/:pathMatch(.*)*', //路由匹配不到
+    name: 'not-found',
+    component: () => import('@/views/not-found/not-found.vue')
   }
 ]
 
