@@ -9,7 +9,7 @@
 
     <!-- 菜单 -->
     <el-menu
-      default-active="2"
+      :default-active="defaultValue"
       class="el-menu-vertical"
       background-color="#0c2135"
       text-color="#b7bdc3"
@@ -50,9 +50,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useStore } from '@/store'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
+import { pathMapToMenu } from '@/utils/map-menus'
 interface Props {
   collapse?: boolean
 }
@@ -62,9 +63,15 @@ withDefaults(defineProps<Props>(), {
 
 const store = useStore()
 const router = useRouter()
+const route = useRoute()
+const currentPath = route.path
 
 //路由菜单
 const userMenus = computed(() => store.state.login.userMenus)
+
+//data 刷新时保存选中
+const menu = pathMapToMenu(userMenus.value, currentPath)
+const defaultValue = ref(menu.id + '')
 
 //menu item 点击路由跳转
 const handleMenuItemClick = (item: any) => {

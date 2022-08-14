@@ -27,6 +27,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     //关闭组件命名规则
     'vue/multi-word-component-names': 'off',
-    '@typescript-eslint/no-var-requires': 0
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-unused-vars': 'off'
   }
 }

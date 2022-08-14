@@ -9,9 +9,10 @@ import 'lib-flexible'
 import './utils/rem'
 
 const app = createApp(App)
-app.use(router)
 app.use(store)
 setupStore()
+//先注册再匹配 否则都是path匹配到notFound
+app.use(router)
 app.mount('#app')
 
 // 注册全局组件
